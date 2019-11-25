@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-place-detail',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceDetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private navCtrl: NavController) { }
+
+  onBookPlace() {
+    // this.router.navigateByUrl('/places/tabs/discover');
+    this.navCtrl.navigateBack('/places/tabs/discover');
+    // this.navCtrl.pop();Pop ele volta para pagina anterior. Mas a desvantagem é que temos que garantir a existência de uma página anterior
+  }
 
   ngOnInit() {
   }
